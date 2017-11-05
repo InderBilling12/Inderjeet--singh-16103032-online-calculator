@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>CALCI</title>
+	<style type="text/css">
+	#brand
+		 {
+		 	text-align: center;
+		 	color:white;
+		 	margin-top: 1%;
+		 	margin-bottom: 1%;
+		 	font-family: comic sans ms;
+
+		 }
+		#current
+		{ 
+			width: 92%;
+			
+			margin:0 auto;
+              margin-top:4%;
+            background-color: #475862;
+			height:21.5%; 
+			border:2px solid #303030;
+			border-radius: 10px;
+			
+
+		 }
+		 #current input
+		 {
+		 	width:99%;
+		     background-color: #475862;	
+		     border:2px solid #475862;
+		     text-align: right;
+			 font-size: 2em;
+			 font-family: comic sans ms;
+			 color:#F6F2E7;
+			 border-radius: 10px;
+			 outline:0;
+
+		 }
+		
+		 #pad
+		 {
+		 	width: 68%;
+		 	margin-top: 2%;
+		 	margin-left: 4%;
+		 	float:left;
+		 	height:60%;
+
+		 }
+		 
+       #pad_next
+		 {
+		 	width: 25%;
+		 	margin-top: 2%;
+		 	margin-left: 0.33%;
+		 	float:left;
+		 	float:left;
+		 	height:60%;
+		 }
+		 
+		 .number
+		 {
+            width:33%;
+            height:21.5%;
+            margin-top:0.333%;
+            margin-left:0.33%; 
+            float:left;
+        
+		 }
+         .number2:hover
+		 {
+            border:0.33px #21343D solid;		 
+		 	border-radius:10px;
+		 }
+		 .number2
+		 {
+		 	  width:100%;
+            color:white;
+            text-align: center;
+            vertical-align: middle;
+            height:100%;
+            margin-top:0.333%;
+            margin-left:0.003%;
+            font-size: 2.5em;
+            font-family: comic sans ms; 
+            float:left;
+            cursor:context-menu;
+            border:0.1px black solid;
+            background:-webkit-linear-gradient(#21343D,#081821);
+            outline: 0;
+		 }
+		 .operator
+		 {
+		 	
+		 	width:90%;
+		    height:21.5%;
+		    margin-top:0.9%;
+            margin-right: 30%;
+
+		 }
+		 .operator2:hover
+		 {
+		  border:0.33px #303030 solid;
+		 	border-radius:10px;		 
+		 }
+		 
+		 .operator2
+		 {
+		 	cursor: context-menu;
+		 	width:100%;
+		 	text-align: center;
+		 	vertical-align:middle;
+		 	height:100%;
+		 	margin-top:0.9%;
+            margin-right: 30%;
+		 	font-family: comic sans ms;
+		 	font-size:2.5em;
+		 	background-color: gray;
+		 	color:white;
+		 	   border:0.2px black solid;
+		 	background:-webkit-linear-gradient(#303030,#000200);
+		 	outline:0;
+		 }
+		
+	 </style>
+	 <script type="text/javascript">
+	 	var str='0';
+		function get(s)
+		{
+			if(str!='0')
+		   	{
+		   		document.getElementById("current2").value=str;
+		   		str='0';
+		   	}
+		   	printing(s);
+
+		}
+		function printing(s)
+		{
+			document.getElementById("current2").value +=s;
+		}
+		function display_answer(s)
+		{
+			str = eval(document.getElementById("current2").value);
+			document.getElementById("current2").value=str;
+		} 
+		function del()
+		{
+			str=document.getElementById("current2").value;
+           str=str.slice(0,-1);
+           document.getElementById("current2").value=str;
+		}
+		
+		function clr()
+		{
+			str='0';
+			document.getElementById("current2").value="";
+		}
+
+	</script>
+</head>
+<body>
+	<div style="height:600px;width:30%;margin:0 auto;background-color: black;border:2px solid #1A1A1A;border-radius:10px;box-shadow:5px 5px 11px black;">
+	<div id="brand">Online Calculator</div>
+	<div id="current"><input id="current2" type="text"></div>
+	<div id="pad">
+	<div class="number" ><input class="number2" type="button" value="C" onclick="clr()"></div>
+	<div class="number" ><input class="number2" type="button" value="(" onclick="get('(')" ></div>
+	<div class="number" ><input class="number2" type="button" value=")" onclick="get(')')"></div>
+	<div class="number" ><input class="number2" type="button" value="7" onclick="get('7')"></div>
+	<div class="number" ><input class="number2" type="button" value="8" onclick="get('8')"></div>
+	<div class="number" ><input class="number2" type="button" value="9" onclick="get('9')"></div>
+	<div class="number" ><input class="number2" type="button" value="4" onclick="get('4')"></div>
+	<div class="number" ><input class="number2" type="button" value="5" onclick="get('5')"></div>
+	<div class="number" ><input class="number2" type="button" value="6" onclick="get('6')"></div>
+	<div class="number" ><input class="number2" type="button" value="1" onclick="get('1')"></div>
+	<div class="number" ><input class="number2" type="button" value="2" onclick="get('2')"></div>
+	<div class="number" ><input class="number2" type="button" value="3" onclick="get('3')"></div>
+	<div class="number" ><input class="number2" type="button" value="." onclick="get('.')"></div>
+	<div class="number" ><input class="number2" type="button" value="0" onclick="get('0')"></div>
+	<div class="number" ><input class="number2" type="button" value="&larr;" onclick="del()"></div>
+     </div>
+
+	<div id="pad_next">
+		<div class="operator"><input class="operator2" type="button" value="&divide;" onclick="get('/')" ></div>
+		<div class="operator"><input class="operator2" type="button" value="&times;" onclick="get('*')"></div>
+		<div class="operator"><input class="operator2" type="button" value="-" onclick="get('-')"></div>
+		<div class="operator"><input class="operator2" type="button" value="+" onclick="get('+')" ></div>
+		<div class="operator"><input class="operator2" type="button" value="=" onclick="display_answer()"></div>
+	</div>
+
+	
+</body>
+</html>
