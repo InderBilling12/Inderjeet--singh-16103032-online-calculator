@@ -8,3 +8,7 @@ steps to be folowed to work on this calculator :
 - after you are done with input ,click "=" button to display answer
 - "C" button works as clear all contents
 - "<-" button works as backspace button
+- the calculator supports the functionality of square-root,cube-root,logarithmic,square function
+- the calculator supports till range of 19 digits
+- it handles divison by 0 case
+- it checks for validity of parenthesis,so enter expression carefully.
