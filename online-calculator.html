@@ -30,7 +30,7 @@
 		     background-color: #475862;	
 		     border:2px solid #475862;
 		     text-align: right;
-			 font-size: 2em;
+			 font-size: 1.5em;
 			 font-family: comic sans ms;
 			 color:#F6F2E7;
 			 border-radius: 10px;
@@ -112,7 +112,7 @@
 		 	vertical-align:middle;
 		 	height:100%;
 		 	font-family: comic sans ms;
-		 	font-size:1.8em;
+		 	font-size:1.5em;
 		 	background-color:gray;
 		 	color:white;
 		 	 border:0.2px black solid;
@@ -123,12 +123,15 @@
 	 </style>
 	 <script type="text/javascript">
 	 	var str='0';
+	 	var answer='0';
+	 	var i=-1;
 		function get(s)
 		{
-			if(str!='0')
+			if(str!='0'||i==0)
 		   	{
 		   		clr();
 		   		str='0';
+		   		i=-1;
 		   	}
 		   	printing(s);
 
@@ -136,27 +139,33 @@
 		function get1()
 		{
           document.getElementById("current2").value=(Math.sqrt(eval(document.getElementById("current2").value)));
+              answer=  document.getElementById("current2").value;
+          i=0;
 
 		}
 		function get2()
 		{
           document.getElementById("current2").value=(Math.cbrt(eval(document.getElementById("current2").value)));
-
+            answer=  document.getElementById("current2").value;
+             i=0;
 		}
 		function get3()
 		{
           document.getElementById("current2").value=(Math.log(eval(document.getElementById("current2").value)));
-
+              answer=  document.getElementById("current2").value;
+           i=0;
 		}
 		function get4()
 		{
-          document.getElementById("current2").value=((Math.log(eval(document.getElementById("current2").value))))/Math.log(10);
-
+          document.getElementById("current2").value+=answer;
+              answer=  document.getElementById("current2").value;
+           i=0;
 		}
 		function get5()
 		{
           document.getElementById("current2").value=(Math.pow(Math.abs(eval(document.getElementById("current2").value)),2));
-
+                answer= document.getElementById("current2").value;
+             i=0;
 		}
 		function printing(s)
 		{
@@ -178,6 +187,7 @@
 			
 			if(count1!=count2)
 				document.getElementById("current2").value="invalid expression";
+
       else
 		{
 			str = eval(document.getElementById("current2").value);
@@ -185,8 +195,14 @@
 				document.getElementById("current2").value="Can't divide by 0";
 			else
 			{
-				if((str.toString().length)<20)
-			 document.getElementById("current2").value=str;
+				if((str.toString().length)<20 )
+			 {
+                    			    
+			 		document.getElementById("current2").value=str;
+			     	answer=str;
+			    
+			 }
+
 		     else
 			 document.getElementById("current2").value="limit exceeded";
            }
@@ -237,9 +253,9 @@
 		<div class="operator"><input class="operator2" type="button" value="-" onclick="get('-')"></div>
 		<div class="operator"><input class="operator2" type="button" value="ln" onclick="get3()" ></div>
 		<div class="operator"><input class="operator2" type="button" value="+" onclick="get('+')" ></div>
-		<div class="operator"><input class="operator2" type="button" value="log" onclick="get4()" ></div>
-		<div class="operator"><input class="operator2" type="button" value="=" onclick="display_answer()"></div>
 		<div class="operator"><input class="operator2" type="button" value="x&sup2;" onclick="get5()" ></div>
+		<div class="operator"><input class="operator2" type="button" value="=" onclick="display_answer()"></div>
+        <div class="operator"><input class="operator2" type="button" value="Ans;" onclick="get4()" ></div>		
 		
 		
 	</div>
