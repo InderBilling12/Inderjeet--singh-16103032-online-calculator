@@ -12,3 +12,4 @@ steps to be folowed to work on this calculator :
 - the calculator supports till range of 19 digits
 - it handles divison by 0 case
 - it checks for validity of parenthesis,so enter expression carefully.
+- Ans button can be used to use previous calculated result in current expression. 
